@@ -15,3 +15,27 @@ table {
 	height: 40px;
 	font-size: 1.5em;
 }
+.modal{
+	display: none;
+	margin: 0 auto;
+}
+.modal dialog{
+	border-radius: 10px;
+	background-color: rgb(199, 199, 199);
+}
+.modal dialog:hover{
+	transform: translateY(-2px);
+	transition: 200ms;
+}
+.modal button{
+	border: none;
+	border-radius: 5px;
+	font-size: large;
+}
+.modal button:hover{
+	cursor: pointer;
+	background-color: black;
+	color: ghostwhite;
+	
+	transition: 200ms;
+}

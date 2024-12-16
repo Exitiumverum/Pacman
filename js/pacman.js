@@ -15,7 +15,7 @@ function createPacman(board) {
 function movePacman(ev) {
 
     if (!gGame.isOn) return
-    
+
     // TODO: use getNextLocation(), nextCell
     const nextLocation = getNextLocation(ev)
     if (!nextLocation) return
@@ -24,29 +24,34 @@ function movePacman(ev) {
 
     // TODO: return if cannot move
     if (nextCell === WALL) return
-    
+
     // TODO: hitting a ghost? call gameOver
     if (nextCell === GHOST) {
         gameOver()
         return
     }
-    
+
     // TODO: hitting food? call updateScore
-    if (nextCell === FOOD) updateScore(1)
+    if (nextCell === FOOD) {
+        updateScore(1)
+        gStartFoodCount--
+        if(gStartFoodCount === 0)  victory()
+        console.log(gStartFoodCount)
+    }
 
 
     // TODO: moving from current location:
     // TODO: update the model
     gBoard[gPacman.location.i][gPacman.location.j] = EMPTY
-    
+
     // TODO: update the DOM
     renderCell(gPacman.location, EMPTY)
-    
+
     // TODO: Move the pacman to new location:
     // TODO: update the model
     gPacman.location = nextLocation
     gBoard[gPacman.location.i][gPacman.location.j] = PACMAN
-    
+
     // TODO: update the DOM
     renderCell(gPacman.location, PACMAN)
 }
@@ -70,7 +75,7 @@ function getNextLocation(eventKeyboard) {
         case 'ArrowRight':
             nextLocation.j++
             break;
-    
+
         default:
             return null;
     }

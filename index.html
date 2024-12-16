@@ -11,10 +11,17 @@
 
 <body onload="init()" onkeyup="movePacman(event)">
 
+    <div class="modal">
+        <dialog open>
+            <h2>Hello</h2>
+            <button onclick="restartBtn(this)">Restart</button>
+        </dialog>
+    </div>
     <img src="img/pacman.jpg" alt="">
     <h2 class="score">Score: <span>0</span> </h2>
 
     <div class="board-container"></div>
+
     
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
